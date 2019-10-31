@@ -23,6 +23,11 @@ hx = X * theta;
 
 J = (hx - y)' * (hx - y)/(2*m) + (lambda/(2*m)) * (theta(2:end))' * theta(2:end);
 % =========================================================================
+theta_zero = theta;
+theta_zero(1) = 0;
+
+
+grad = ((1 / m) * (hx - y)' * X) + lambda / m * theta_zero';
 
 grad = grad(:);
 
